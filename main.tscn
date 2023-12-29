@@ -1,0 +1,29 @@
+[gd_scene load_steps=7 format=3 uid="uid://3p63x4hdbe13"]
+
+[ext_resource type="Script" path="res://world.gd" id="1_e02ow"]
+[ext_resource type="PackedScene" uid="uid://l6014brbktw8" path="res://map.tscn" id="1_tpqkk"]
+[ext_resource type="PackedScene" uid="uid://dcos56s8dbqbk" path="res://player.tscn" id="2_2q0l7"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_vuvb6"]
+sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+ground_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+
+[sub_resource type="Sky" id="Sky_e5uwh"]
+sky_material = SubResource("ProceduralSkyMaterial_vuvb6")
+
+[sub_resource type="Environment" id="Environment_5r888"]
+background_mode = 2
+sky = SubResource("Sky_e5uwh")
+tonemap_mode = 2
+glow_enabled = true
+
+[node name="World" type="Node3D"]
+script = ExtResource("1_e02ow")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_5r888")
+
+[node name="map" parent="." instance=ExtResource("1_tpqkk")]
+
+[node name="Player" parent="." instance=ExtResource("2_2q0l7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 10, 10)
