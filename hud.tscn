@@ -1,0 +1,46 @@
+[gd_scene load_steps=2 format=3 uid="uid://3ho7pjh463t7"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_63rn3"]
+
+[node name="HUD" type="CanvasLayer"]
+
+[node name="Stamina bars" type="CanvasGroup" parent="."]
+
+[node name="1" type="ProgressBar" parent="Stamina bars"]
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = 618.0
+offset_right = 100.0
+offset_bottom = 648.0
+grow_vertical = 0
+max_value = 1.0
+step = 0.001
+show_percentage = false
+
+[node name="2" type="ProgressBar" parent="Stamina bars"]
+offset_left = 100.0
+offset_top = 618.0
+offset_right = 200.0
+offset_bottom = 648.0
+max_value = 1.0
+step = 0.001
+show_percentage = false
+
+[node name="3" type="ProgressBar" parent="Stamina bars"]
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 200.0
+offset_top = 618.0
+offset_right = 300.0
+offset_bottom = 648.0
+grow_vertical = 0
+rotation = 0.00200462
+max_value = 1.0
+step = 0.001
+show_percentage = false
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="."]
+process_material = SubResource("ShaderMaterial_63rn3")
+trail_enabled = true

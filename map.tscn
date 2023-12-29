@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://l6014brbktw8"]
+[gd_scene load_steps=10 format=3 uid="uid://l6014brbktw8"]
 
 [ext_resource type="PackedScene" uid="uid://bi5xj5qa1upmj" path="res://map.blend" id="1_f1jm7"]
 [ext_resource type="Texture2D" uid="uid://cnr8p88g7bh2d" path="res://addons/kenney_prototype_textures/light/texture_07.png" id="2_264u6"]
@@ -36,6 +36,9 @@ uv1_scale = Vector3(0.5, 0.5, 0.5)
 uv1_triplanar = true
 uv1_world_triplanar = true
 
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_rxxat"]
+bounce = 0.9
+
 [node name="map" instance=ExtResource("1_f1jm7")]
 
 [node name="Sun" parent="." index="0"]
@@ -68,3 +71,7 @@ surface_material_override/0 = SubResource("StandardMaterial3D_qy5ho")
 
 [node name="StaticBody3D" parent="Walls" index="0" groups=["walls"]]
 collision_layer = 16
+
+[node name="StaticBody3D" parent="Bouncepad" index="0"]
+collision_layer = 16
+physics_material_override = SubResource("PhysicsMaterial_rxxat")
